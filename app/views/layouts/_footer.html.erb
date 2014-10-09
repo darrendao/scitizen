@@ -1,0 +1,23 @@
+<div id="footer">
+      <footer class="text-center">
+        <p><small>
+        &copy; Mars Scitizens 2014 |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Use</a>
+        </small></p>
+      </footer>
+  </div>
+
+ <script>
+
+  $(document).ready(function() {
+
+   var docHeight = $(window).height();
+   var footerHeight = $('#footer').height();
+   var footerTop = $('#footer').position().top + footerHeight;
+
+   if (footerTop < docHeight) {
+    $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+   }
+  });
+ </script>
