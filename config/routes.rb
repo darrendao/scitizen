@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :image2_tests
 
-  resources :image_tests
+  resources :image_tests do
+    collection do
+      get 'testit'
+    end
+  end
 
   devise_for :users
   resources :users

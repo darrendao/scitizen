@@ -31,3 +31,9 @@ end
 # }].each do |attrs|
 #   Merit::Badge.create! attrs
 # end
+Merit::Badge.create!(
+  id: 1,
+  name: "image-tester",
+  description: "Created an image test",
+  custom_fields: { difficulty: :bronze }
+)

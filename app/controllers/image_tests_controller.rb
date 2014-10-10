@@ -61,6 +61,18 @@ class ImageTestsController < ApplicationController
     end
   end
 
+  def testit
+    images = []
+    (1..10).each do |i|
+      image = {src:'http://mars.jpl.nasa.gov/msl-raw-images/msss/00410/mcam/0410ML1694000000E1_DXXX.jpg',
+               text: "My annotation #{i}",
+               shapes: [{type: 'rect', units: 'pixel', geometry: { x: 10 + i*100, y: 10 + i*100, width: 40, height: 60 }}]
+              }
+      images << image
+    end
+    render json: images
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image_test

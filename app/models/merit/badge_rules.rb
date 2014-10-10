@@ -43,6 +43,7 @@ module Merit
       #
       #   user.name.length > 4
       # end
+      grant_on 'image_tests#create', badge: 'image-tester', to: :action_user
     end
   end
 end

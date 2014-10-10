@@ -1,3 +1,62 @@
+<script>
+jQuery(document).ready(function($) {
+var myAnnotation = {
+    /** The URL of the image where the annotation should go **/
+    src : 'http://mars.jpl.nasa.gov/msl-raw-images/msss/00410/mcam/0410ML1694000000E1_DXXX.jpg',
+     
+    /** The annotation text **/
+    text : 'My annotation',
+     
+    /** The annotation shape **/
+    shapes : [{
+        /** The shape type **/
+        type : 'rect',
+ 
+        /** 'units' only required for pixel coordinates **/
+        units: 'pixel',
+       
+        /** The shape geometry (pixel coordinates) **/
+        geometry : { x : 10, y: 10, width : 40, height: 60 }
+    }]
+}  
+
+var myAnnotation2 = {
+    /** The URL of the image where the annotation should go **/
+    src : 'http://mars.jpl.nasa.gov/msl-raw-images/msss/00410/mcam/0410ML1694000000E1_DXXX.jpg',
+     
+    /** The annotation text **/
+    text : 'My annotation 2',
+     
+    /** The annotation shape **/
+    shapes : [{
+        /** The shape type **/
+        type : 'rect',
+ 
+        /** 'units' only required for pixel coordinates **/
+        units: 'pixel',
+       
+        /** The shape geometry (pixel coordinates) **/
+        geometry : { x : 120, y: 100, width : 40, height: 60 }
+    }]
+}
+
+anno.makeAnnotatable(document.getElementById('something'));
+anno.addAnnotation(myAnnotation);
+anno.addAnnotation(myAnnotation2);
+anno.addHandler('onAnnotationCreated', function(annotation) {
+    console.log(annotation.text);
+    console.log(annotation.shapes[0].geometry.x);
+});
+
+$.getJSON( "testit", function( data ) {
+  $.each( data, function( key, val ) {
+    anno.addAnnotation(val);
+  });
+});
+
+});
+</script>
+
 <%- model_class = ImageTest -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
@@ -9,6 +68,10 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @image_test.description %></dd>
 </dl>
+
+<div>
+  <%= image_tag 'http://mars.jpl.nasa.gov/msl-raw-images/msss/00410/mcam/0410ML1694000000E1_DXXX.jpg', :id => 'something' %>
+</div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               image_tests_path, :class => 'btn btn-default'  %>
