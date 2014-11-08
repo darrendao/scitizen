@@ -1,0 +1,9 @@
+<div class="item <%= image_counter == 0? "active":""%>">
+  <%= link_to url_for(controller: :explore, id: image.id, action: :show) do %>
+  <%= image_tag image.url %> 
+  <% end %>
+  <div class="carousel-caption">
+  	<h5><%= File.basename(image.url, '.jpg') %></h5>
+    <p>sol <%= image.sol %> | <%= image.image_time %></p>
+  </div>
+</div>

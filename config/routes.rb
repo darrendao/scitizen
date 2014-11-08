@@ -1,4 +1,25 @@
 Rails.application.routes.draw do
+  resources :my_annotations do
+    collection do
+      get 'list_anno'
+    end
+  end
+
+  resources :explore do
+    collection do
+      get 'random'
+      get 'gallery'
+    end
+  end
+
+  resources :image_annotations do
+    collection do
+      get 'testit'
+    end
+  end
+
+  resources :images
+
   resources :image2_tests
 
   resources :image_tests do
@@ -14,7 +35,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'explore#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

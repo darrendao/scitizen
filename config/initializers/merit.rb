@@ -17,6 +17,7 @@ Merit.setup do |config|
   # to retrieve :user_model_name object if no `:to` option is given. Default
   # is "current_#{user_model_name.downcase}".
   # config.current_user_method = 'current_user'
+  config.add_observer 'BadgeEarnedObserver'
 end
 
 # Create application badges (uses https://github.com/norman/ambry)
@@ -33,7 +34,33 @@ end
 # end
 Merit::Badge.create!(
   id: 1,
-  name: "image-tester",
-  description: "Created an image test",
-  custom_fields: { difficulty: :bronze }
+  name: "Bronze Annotator",
+  description: "Created 5 annotations",
+  custom_fields: { difficulty: :bronze, url: 'badges/annotator_bronze.png' }
+)
+Merit::Badge.create!(
+  id: 2,
+  name: "Silver Annotator",
+  description: "Created 20 annotations",
+  custom_fields: { difficulty: :silver, url: 'badges/annotator_silver.png' }
+)
+Merit::Badge.create!(
+  id: 3,
+  name: "Gold Annotator",
+  description: "Created 100 annotations",
+  custom_fields: { difficulty: :silver, url: 'badges/annotator_gold.png' }
+)
+
+Merit::Badge.create!(
+  id: 4,
+  name: "Star Gazer",
+  description: "Annotated stars in images",
+  custom_fields: { difficulty: :silver, url: 'badges/stargazer.png' }
+)
+
+Merit::Badge.create!(
+  id: 5,
+  name: "Rover Lover",
+  description: "Created annotations relating to the rover",
+  custom_fields: { difficulty: :silver, url: 'badges/roverlover.png' }
 )

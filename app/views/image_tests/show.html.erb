@@ -1,48 +1,7 @@
 <script>
 jQuery(document).ready(function($) {
-var myAnnotation = {
-    /** The URL of the image where the annotation should go **/
-    src : 'http://mars.jpl.nasa.gov/msl-raw-images/msss/00410/mcam/0410ML1694000000E1_DXXX.jpg',
-     
-    /** The annotation text **/
-    text : 'My annotation',
-     
-    /** The annotation shape **/
-    shapes : [{
-        /** The shape type **/
-        type : 'rect',
- 
-        /** 'units' only required for pixel coordinates **/
-        units: 'pixel',
-       
-        /** The shape geometry (pixel coordinates) **/
-        geometry : { x : 10, y: 10, width : 40, height: 60 }
-    }]
-}  
-
-var myAnnotation2 = {
-    /** The URL of the image where the annotation should go **/
-    src : 'http://mars.jpl.nasa.gov/msl-raw-images/msss/00410/mcam/0410ML1694000000E1_DXXX.jpg',
-     
-    /** The annotation text **/
-    text : 'My annotation 2',
-     
-    /** The annotation shape **/
-    shapes : [{
-        /** The shape type **/
-        type : 'rect',
- 
-        /** 'units' only required for pixel coordinates **/
-        units: 'pixel',
-       
-        /** The shape geometry (pixel coordinates) **/
-        geometry : { x : 120, y: 100, width : 40, height: 60 }
-    }]
-}
 
 anno.makeAnnotatable(document.getElementById('something'));
-anno.addAnnotation(myAnnotation);
-anno.addAnnotation(myAnnotation2);
 anno.addHandler('onAnnotationCreated', function(annotation) {
     console.log(annotation.text);
     console.log(annotation.shapes[0].geometry.x);
@@ -70,9 +29,10 @@ $.getJSON( "testit", function( data ) {
 </dl>
 
 <div>
-  <%= image_tag 'http://mars.jpl.nasa.gov/msl-raw-images/msss/00410/mcam/0410ML1694000000E1_DXXX.jpg', :id => 'something' %>
+  <%= image_tag @random_image.url, :id => 'something' %>
 </div>
 
+<!--
 <%= link_to t('.back', :default => t("helpers.links.back")),
               image_tests_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -82,3 +42,4 @@ $.getJSON( "testit", function( data ) {
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+            -->

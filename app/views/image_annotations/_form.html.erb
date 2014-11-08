@@ -1,0 +1,29 @@
+<%= form_for(@image_annotation) do |f| %>
+  <% if @image_annotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image_annotation.errors.count, "error") %> prohibited this image_annotation from being saved:</h2>
+
+      <ul>
+      <% @image_annotation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image_src %><br>
+    <%= f.text_field :image_src %>
+  </div>
+  <div class="field">
+    <%= f.label :shapes %><br>
+    <%= f.text_field :shapes %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

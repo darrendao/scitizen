@@ -1,39 +1,41 @@
+<script>
+jQuery(document).ready(function($) {
+
+anno.makeAnnotatable(document.getElementById('something'));
+anno.addHandler('onAnnotationCreated', function(annotation) {
+    console.log(annotation.text);
+    console.log(annotation.shapes[0].geometry.x);
+    $.post( 'image_annotations.json', annotation );
+});
+
+$.getJSON( "testit", function( data ) {
+  $.each( data, function( key, val ) {
+    anno.addAnnotation(val);
+  });
+});
+
+});
+</script>
+
 <%- model_class = ImageTest -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @image_tests.each do |image_test| %>
-      <tr>
-        <td><%= link_to image_test.id, image_test_path(image_test) %></td>
-        <td><%= image_test.title %></td>
-        <td><%= image_test.description %></td>
-        <td><%=l image_test.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_image_test_path(image_test), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      image_test_path(image_test),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_image_test_path,
-            :class => 'btn btn-primary' %>
-
+<div class="col-md-2">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Image Info</h3>
+    </div>
+    <div class="panel-body">
+      <strong><%= model_class.human_attribute_name(:sol) %>:</strong> <%= @random_image.sol %><br/>
+      <strong><%= model_class.human_attribute_name(:camera_type) %>:</strong> <%= @random_image.camera_type %><br/>
+      <strong><%= model_class.human_attribute_name(:image_time) %>:</strong> <%= @random_image.image_time %><br/>
+    </div>
+  </div>
+</div>
+<div class="col-md-10">
+  <div>
+    <%= image_tag @random_image.url, :id => 'something' %>
+  </div>
+</div>

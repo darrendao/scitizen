@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009065353) do
+ActiveRecord::Schema.define(version: 20141108231851) do
+
+  create_table "achievement_notifications", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "seen"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "achievement_notifications", ["user_id"], name: "index_achievement_notifications_on_user_id"
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -31,9 +40,31 @@ ActiveRecord::Schema.define(version: 20141009065353) do
     t.datetime "updated_at"
   end
 
+  create_table "image_annotations", force: true do |t|
+    t.string   "src"
+    t.string   "shapes"
+    t.string   "text"
+    t.integer  "user_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "image_annotations", ["image_id"], name: "index_image_annotations_on_image_id"
+  add_index "image_annotations", ["user_id"], name: "index_image_annotations_on_user_id"
+
   create_table "image_tests", force: true do |t|
     t.string   "title"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "url"
+    t.integer  "sol"
+    t.string   "camera_type"
+    t.datetime "image_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

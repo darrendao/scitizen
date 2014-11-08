@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image src:</strong>
+  <%= @image_annotation.image_src %>
+</p>
+
+<p>
+  <strong>Shapes:</strong>
+  <%= @image_annotation.shapes %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @image_annotation.user %>
+</p>
+
+<%= link_to 'Edit', edit_image_annotation_path(@image_annotation) %> |
+<%= link_to 'Back', image_annotations_path %>

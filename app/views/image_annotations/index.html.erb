@@ -1,0 +1,29 @@
+<h1>Listing image_annotations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image src</th>
+      <th>Shapes</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @image_annotations.each do |image_annotation| %>
+      <tr>
+        <td><%= image_annotation.image_src %></td>
+        <td><%= image_annotation.shapes %></td>
+        <td><%= image_annotation.user %></td>
+        <td><%= link_to 'Show', image_annotation %></td>
+        <td><%= link_to 'Edit', edit_image_annotation_path(image_annotation) %></td>
+        <td><%= link_to 'Destroy', image_annotation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Image annotation', new_image_annotation_path %>

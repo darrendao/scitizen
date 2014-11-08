@@ -4,12 +4,15 @@ class ImageTestsController < ApplicationController
   # GET /image_tests
   # GET /image_tests.json
   def index
-    @image_tests = ImageTest.all
+    image_count = Image.count
+    @random_image =  Image.offset(rand(Image.count)).first
+    #current_user.image_annotations.where(:image_src => @random_image.url)
   end
 
   # GET /image_tests/1
   # GET /image_tests/1.json
   def show
+    @random_image = Image.find(29202)
   end
 
   # GET /image_tests/new
@@ -63,14 +66,16 @@ class ImageTestsController < ApplicationController
 
   def testit
     images = []
-    (1..10).each do |i|
-      image = {src:'http://mars.jpl.nasa.gov/msl-raw-images/msss/00410/mcam/0410ML1694000000E1_DXXX.jpg',
-               text: "My annotation #{i}",
-               shapes: [{type: 'rect', units: 'pixel', geometry: { x: 10 + i*100, y: 10 + i*100, width: 40, height: 60 }}]
-              }
-      images << image
+    annotations = ImageAnnotation.where(:src => 'http://mars.jpl.nasa.gov/msl-raw-images/msss/00137/mcam/0137MR0817074000E1_DXXX.jpg')
+    annotations.each do |anno|
+      images << {src: anno.src,
+                 text: anno.text,
+                 shapes: JSON.parse(anno.shapes)}
     end
+    puts annotations.to_json
+    puts images.to_json 
     render json: images
+#    render json: annotations
   end
 
   private

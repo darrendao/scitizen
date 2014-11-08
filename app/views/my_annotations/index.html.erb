@@ -1,0 +1,31 @@
+<h1>Listing annotated images</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Image ID</th>
+      <th>Image Type</th>
+      <th>Annotations</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @images.each do |image_url, info| %>
+      <tr>
+        <td>
+          <%= link_to action: "show", id: info[:image].id do %>
+          <%= image_tag info[:image].thumbnail_url, size: "50" %>
+          <% end %>
+        </td>
+        <td><%= File.basename(image_url, ".jpg") %></td>
+        <td><%= info[:image].camera_type %></td>
+        <td><%= info[:annotation_text].join(", ") %></td>
+        <td><%= link_to 'Show', action: "show", id: info[:image].id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

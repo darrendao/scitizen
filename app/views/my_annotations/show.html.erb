@@ -1,0 +1,39 @@
+<script>
+jQuery(document).ready(function($) {
+
+anno.makeAnnotatable(document.getElementById('something'));
+anno.addHandler('onAnnotationCreated', function(annotation) {
+    $.post( '/image_annotations.json', annotation );
+});
+
+$.getJSON( "list_anno?image_id=<%= @image.id %>", function( data ) {
+  $.each( data, function( key, val ) {
+    anno.addAnnotation(val);
+  });
+});
+
+});
+</script>
+
+<%- model_class = ImageTest -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<div class="col-md-2">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Image Info</h3>
+    </div>
+    <div class="panel-body">
+      <strong><%= model_class.human_attribute_name(:sol) %>:</strong> <%= @image.sol %><br/>
+      <strong><%= model_class.human_attribute_name(:camera_type) %>:</strong> <%= @image.camera_type %><br/>
+      <strong><%= model_class.human_attribute_name(:image_time) %>:</strong> <%= @image.image_time %><br/>
+    </div>
+  </div>
+</div>
+<div class="col-md-10">
+  <div>
+    <%= image_tag @image.url, :id => 'something' %>
+  </div>
+</div>

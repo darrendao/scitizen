@@ -1,0 +1,58 @@
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron" style="background-image: url(http://www.nivnac.co.uk/mer/images/MSL3_bradbury_landing_mtsharp_crop_quarter.jpg); background-size: 100%;">
+      <div class="container">
+        <h2>Hello Mars Explorers</h2>
+        <p>The Mars rovers Curiosity and Opportunity have been on the move capturing fantastic photos of the Red planet for years. Help us analyze these images by annotating them. Share your findings and become Mars Scitizens!</p>
+        <p><%= link_to "<button type='button' class='btn btn-primary btn-lg'><span class='glyphicon glyphicon-search'></span> Start Exploring</button>".html_safe, random_explore_index_path %></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
+          <h2>What's New</h2>
+<div id="carousel-whats-new" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <%= render partial: 'carousel_indicator', collection: @new_images, as: :image  %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <%= render partial: 'carousel_image', collection: @new_images, as: :image  %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-whats-new" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-whats-new" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+        </div>
+        <div class="col-md-6">
+          <h2>What's Hot</h2>
+<div id="carousel-whats-hot" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <%= render partial: 'carousel_indicator', collection: @random_images, as: :image  %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <%= render partial: 'carousel_image', collection: @random_images, as: :image  %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-whats-hot" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-whats-hot" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+       </div>
+      </div>
+
