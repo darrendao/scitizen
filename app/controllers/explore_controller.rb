@@ -28,4 +28,15 @@ class ExploreController < ApplicationController
       format.js
     end
   end
+
+  def list_anno
+    annos = []
+    image_annotations = ImageAnnotation.where(:image_id => params['image_id']).all 
+    image_annotations.each do |anno|
+      annos << {src: anno.src,
+                text: anno.text,
+                shapes: JSON.parse(anno.shapes)}
+    end
+    render json: annos
+  end
 end

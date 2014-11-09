@@ -8,7 +8,7 @@ anno.addHandler('onAnnotationCreated', function(annotation) {
     $.post( '/image_annotations.json', annotation );
 });
 
-$.getJSON( "/my_annotations/list_anno?image_id=<%= @image.id %>", function( data ) {
+$.getJSON( "/explore/list_anno?image_id=<%= @image.id %>", function( data ) {
   $.each( data, function( key, val ) {
     anno.addAnnotation(val);
   });
