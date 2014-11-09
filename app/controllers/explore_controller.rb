@@ -8,7 +8,8 @@ class ExploreController < ApplicationController
     # @hot_images 
 
     # Get random
-    @random_images = Image.offset(rand(Image.count)).limit(10)
+#    @random_images = Image.offset(rand(Image.count)).limit(10)
+    @random_images = Image.all.sample(10)
 
     @hot_images = Image.top10;
 
