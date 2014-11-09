@@ -16,6 +16,7 @@
  *= require_self
  */
 
+body { padding-top: 50px; }
 
 .form-signin
 {
@@ -91,4 +92,17 @@
 {
     display: block;
     margin-top: 10px;
+}
+
+.navbar-inverse .navbar-brand{
+    color: #E6914B;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #E6914B;
+}
+
+.jumbotron {
+    color: white;
+    text-shadow: black 0.2em 0.2em 0.2em;
 }

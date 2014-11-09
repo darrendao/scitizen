@@ -9,6 +9,8 @@ class ExploreController < ApplicationController
 
     # Get random
     @random_images = Image.offset(rand(Image.count)).limit(10)
+
+    render layout: 'exploreindex'
   end
 
   def show
