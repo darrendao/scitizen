@@ -29,6 +29,9 @@ $.getJSON( "/explore/list_anno?image_id=<%= @image.id %>", function( data ) {
     </div>
     <div class="panel-body">
       Click and drag on image to annotate interesting features.
+      <% unless current_user %>
+      Register and sign in to keep track of your works and to earn achievements.
+      <% end %>
     </div>
   </div>  
   <div class="panel panel-primary">
