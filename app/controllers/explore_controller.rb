@@ -10,6 +10,8 @@ class ExploreController < ApplicationController
     # Get random
     @random_images = Image.offset(rand(Image.count)).limit(10)
 
+    @hot_images = Image.top10;
+
     render layout: 'exploreindex'
   end
 

@@ -39,12 +39,12 @@
 <div id="carousel-whats-hot" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <%= render partial: 'carousel_indicator', collection: @random_images, as: :image  %>
+    <%= render partial: 'carousel_indicator', collection: @hot_images, as: :image  %>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <%= render partial: 'carousel_image', collection: @random_images, as: :image  %>
+    <%= render partial: 'carousel_image', collection: @hot_images, as: :image  %>
   </div>
 
   <!-- Controls -->
