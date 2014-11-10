@@ -1,28 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a demo webapp for the AWS re:Invent NASA JPL challenge. It shows the basic idea of how one can utility the available Mars image json feed. 
 
-Things you may want to cover:
+* Ruby version: Tested on Ruby 2.0
 
-* Ruby version
+* Installation: This is a basic Rails app. Assuming you have successfully set up your Ruby and rubygems environment, you can simply run "bundle install" inside the app directory to install all the necessary Ruby gems. 
 
-* System dependencies
+* How to run: Simply run "rails server" inside the app directory. Then browse to localhost:3000
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Demo URL: http://ec2-54-67-5-56.us-west-1.compute.amazonaws.com/
