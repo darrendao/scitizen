@@ -12,7 +12,6 @@ def get_images_for_sol(sol_url)
     image_groups.each do |group|
       group['images'].each do |image|
         image_urls << image['url']
-        puts image_urls
         next if Image.where(url: image['url']).exists?
 
         # skip images that are smaller than desired
