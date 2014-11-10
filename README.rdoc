@@ -9,3 +9,19 @@ This is a demo webapp for the AWS re:Invent NASA JPL challenge. It shows the bas
 * How to run: Simply run "rails server" inside the app directory. Then browse to localhost:3000
 
 * Demo URL: http://ec2-54-67-5-56.us-west-1.compute.amazonaws.com/
+
+* Technologies: Rails webapp running on an Amazon EC2 instance with Mysql DB tier running in Amazaon RDS. Image annotation is done using annotorious.github.io. UI is done via Twitter's bootstrap. User authenication is done using Devise gem and achievement system is done using the merit gem.
+
+Since this is just a demo app, there is a lot of room for improvement. Here are some
+
+* Search capability
+
+* Ability to expose user submitted content & statistics (e.g. API) for consumption by other parties. That would be extremely useful as a mechanism to feed back results to NASA systems.
+
+* Better support for touch-screen devices
+
+* Vetting process for user submitted content
+
+* Commenting and voting system
+
+* Better achievement system where we can promote normal users to expert users
