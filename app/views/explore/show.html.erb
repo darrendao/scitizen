@@ -30,7 +30,7 @@ $.getJSON( "/explore/list_anno?image_id=<%= @image.id %>", function( data ) {
     <div class="panel-body">
       Click and drag on image to annotate interesting features.
       <% unless current_user %>
-      <br/><br/>Register and sign in to keep track of your works and to earn achievements.
+      <br/><br/><%= link_to 'Register', new_user_registration_path %> and <%= link_to 'sign in', new_user_session_path %> to keep track of your works and to earn achievements.
       <% end %>
     </div>
   </div>  
