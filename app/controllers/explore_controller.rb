@@ -4,9 +4,6 @@ class ExploreController < ApplicationController
     # Get what's new
     @new_images = Image.limit(10).order('id desc')
 
-    # TODO: Get what's hot
-    # @hot_images 
-
     # Get random
     @random_images = []
     (1..10).each do |i|
