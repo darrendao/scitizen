@@ -1,20 +1,30 @@
 == README
 
-This is a demo webapp for the AWS re:Invent NASA JPL challenge. It shows the basic idea of how one can consume the available Mars image json feed and turn it into an interactive experience where users can help find interesting features on Mars. 
+This is a demo webapp for the AWS re:Invent NASA JPL challenge. It shows the basic idea of how one can consume the available Mars image json feed and turn it into an interactive experience where users can help find interesting features on Mars. It is a Rails webapp running on an Amazon EC2 instance with Mysql DB tier running in Amazaon RDS. Image annotation is done using annotorious.github.io. UI is done via Twitter's bootstrap. User authenication is done using Devise gem and achievement system is done using the merit gem.
 
+* Demo URL: http://ec2-54-67-5-56.us-west-1.compute.amazonaws.com/
+
+=== Requirements & Setup
 * Ruby version: Tested on Ruby 2.0
 
 * Installation: This is a basic Rails app. Assuming you have successfully set up your Ruby and rubygems environment, you can simply run "bundle install" inside the app directory to install all the necessary Ruby gems. 
 
-* How to run: Simply run "rails server" inside the app directory. Then browse to localhost:3000
+* Data setup: Run the following commands to set up the DB tables and to populate them with Mars images
 
-* Demo URL: http://ec2-54-67-5-56.us-west-1.compute.amazonaws.com/
+rake db:migrate
 
-* Technologies: Rails webapp running on an Amazon EC2 instance with Mysql DB tier running in Amazaon RDS. Image annotation is done using annotorious.github.io. UI is done via Twitter's bootstrap. User authenication is done using Devise gem and achievement system is done using the merit gem.
+rake populate_image:get_msl_images
 
+=== How to run the app: 
+
+* Simply run "rails server" inside the app directory. 
+
+* Then browse to localhost:3000
+
+=== What's next
 Since this is just a demo app, there is a lot of room for improvement. Here are some
 
-* Search capability
+* Search capability. Maybe we can use CloudSearch, ElasticSearch or DynamoDB.
 
 * Ability to expose user submitted content & statistics (e.g. API) for consumption by other parties. That would be extremely useful as a mechanism to feed back results to NASA systems.
 
