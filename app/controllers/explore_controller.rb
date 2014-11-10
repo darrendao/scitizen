@@ -15,7 +15,7 @@ class ExploreController < ApplicationController
 
     @hot_images = Image.top10;
 
-    @new_annotated_images = ImageAnnotation.limit(10).order('created_at DESC').uniq.map{|a| a.image}
+    @new_annotated_images = ImageAnnotation.limit(10).order('created_at DESC').map{|a| a.image}.uniq
 
     render layout: 'exploreindex'
   end
