@@ -1,6 +1,6 @@
 == README
 
-This is a demo webapp for the AWS re:Invent NASA JPL challenge. It shows the basic idea of how one can utility the available Mars image json feed. 
+This is a demo webapp for the AWS re:Invent NASA JPL challenge. It shows the basic idea of how one can consume the available Mars image json feed and turn it into an interactive experience where users can help find interesting features on Mars. 
 
 * Ruby version: Tested on Ruby 2.0
 
