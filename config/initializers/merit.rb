@@ -64,3 +64,10 @@ Merit::Badge.create!(
   description: "Created annotations relating to the rover",
   custom_fields: { difficulty: :silver, url: 'badges/roverlover.png' }
 )
+
+Merit::Badge.create!(
+  id: 6,
+  name: "Newbie Annotator",
+  description: "For annotating your first image",
+  custom_fields: { difficulty: :silver, url: 'badges/annotator_newbie.png' }
+)

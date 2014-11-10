@@ -43,6 +43,9 @@ module Merit
       #
       #   user.name.length > 4
       # end
+      grant_on 'image_annotations#create', badge: 'Newbie Annotator', to: :action_user do |image_annotation|
+        image_annotation.user.image_annotations.count == 1
+      end
       grant_on 'image_annotations#create', badge: 'Bronze Annotator', to: :action_user do |image_annotation|
         image_annotation.user.image_annotations.count == 5
       end
