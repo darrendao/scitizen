@@ -8,10 +8,14 @@ class ExploreController < ApplicationController
     # @hot_images 
 
     # Get random
-#    @random_images = Image.offset(rand(Image.count)).limit(10)
-    @random_images = Image.all.sample(10)
+    @random_images = []
+    (1..10).each do |i|
+      @random_images << Image.offset(rand(Image.count)).first
+    end
 
     @hot_images = Image.top10;
+
+    @new_annotated_images = ImageAnnotation.limit(10).order('created_at DESC').uniq.map{|a| a.image}
 
     render layout: 'exploreindex'
   end
