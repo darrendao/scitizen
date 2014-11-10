@@ -10,99 +10,99 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-
-        <div class="col-md-3">
-          <h2>New Images</h2>
-<div id="carousel-whats-new" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <%= render partial: 'carousel_indicator', collection: @new_images, as: :image  %>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <%= render partial: 'carousel_image', collection: @new_images, as: :image  %>
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-whats-new" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-whats-new" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
-        </div>
-
-        <div class="col-md-3">
-          <h2>New Annotations</h2>
-<div id="carousel-new-annos" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <%= render partial: 'carousel_indicator', collection: @new_annotated_images, as: :image  %>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <%= render partial: 'carousel_image', collection: @new_annotated_images, as: :image  %>
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-new-annos" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-new-annos" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
-        </div>
-
-        <div class="col-md-3">
+        <div class="col-md-6">
           <h2>What's Hot</h2>
-<div id="carousel-whats-hot" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <%= render partial: 'carousel_indicator', collection: @hot_images, as: :image  %>
-  </ol>
+          <div id="carousel-whats-hot" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <%= render partial: 'carousel_indicator', collection: @hot_images, as: :image  %>
+            </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <%= render partial: 'carousel_image', collection: @hot_images, as: :image  %>
-  </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <%= render partial: 'carousel_image', collection: @hot_images, as: :image  %>
+            </div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-whats-hot" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-whats-hot" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
-       </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-whats-hot" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-whats-hot" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <h2>Random Images</h2>
-<div id="carousel-random-images" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <%= render partial: 'carousel_indicator', collection: @random_images, as: :image  %>
-  </ol>
+          <div id="carousel-random-images" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <%= render partial: 'carousel_indicator', collection: @random_images, as: :image  %>
+            </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <%= render partial: 'carousel_image', collection: @random_images, as: :image  %>
-  </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <%= render partial: 'carousel_image', collection: @random_images, as: :image  %>
+            </div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-random-images" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-random-images" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
-       </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-random-images" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-random-images" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h2>New Images</h2>
+          <div id="carousel-whats-new" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <%= render partial: 'carousel_indicator', collection: @new_images, as: :image  %>
+            </ol>
 
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <%= render partial: 'carousel_image', collection: @new_images, as: :image  %>
+            </div>
 
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-whats-new" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-whats-new" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h2>New Annotations</h2>
+          <div id="carousel-new-annos" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <%= render partial: 'carousel_indicator', collection: @new_annotated_images, as: :image  %>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <%= render partial: 'carousel_image', collection: @new_annotated_images, as: :image  %>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-new-annos" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-new-annos" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
+        </div>      
       </div>
 
+      
+    </div>
