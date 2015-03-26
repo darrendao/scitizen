@@ -26,6 +26,8 @@ rake populate_image:get_msl_images
 === What's next
 Since this is just a demo app, there is a lot of room for improvement. Here are some
 
+* Better indexing capability as new images become available in the image feed.
+
 * Search capability. Maybe we can use CloudSearch, ElasticSearch or DynamoDB.
 
 * Ability to expose user submitted content & statistics (e.g. API) for consumption by other parties. That would be extremely useful as a mechanism to feed back results to NASA systems.
